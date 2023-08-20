@@ -7,14 +7,19 @@
 {% block body %}
 
     
-{{ content | safe}}
+
 
 <form action="{% url 'edit' %}" method="post">
     {% csrf_token %}
+    <p  name="entry_title" value="">{{title}}</p>
+
+    {{ content | safe}}
+
     <input type="hidden" name="entry_title" value="{{title}}">
+    
     <input type="submit" value="edit" class="btn btn-outline-primary btn-md">
 </form>
 
-  
+
 
 {% endblock %}
